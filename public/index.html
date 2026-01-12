@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>地震情報モニター</title>
+    <style>
+        body { background: #111; color: #fff; font-family: sans-serif; padding: 20px; }
+        .card { border-left: 10px solid #ff4444; background: #222; padding: 20px; margin-bottom: 20px; }
+        .area-item { display: inline-block; background: #333; margin: 5px; padding: 5px 10px; border-radius: 4px; }
+        .int-high { color: #ff0000; font-weight: bold; } /* 震度5以上 */
+        .status-test { color: #ffff00; } /* 訓練用 */
+    </style>
+</head>
+<body>
+    <h1>地震情報モニター</h1>
+    <div id="container">待機中...</div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        const container = document.getElementById('container');
+        
+        socket.on('quake_update', (data) => {
+
+        html = `
+            <div class="card">
+                <h2>${data.title} <span class="status-test">${data.status === '通常' ? '' : '['+data.status+']'}</span></h2>
+                <p>発生時刻: ${data.targetTime} </p> 
+                <p>EventID: ${data.eventId}</p>
+                
+             `; 
+             
+            switch(data.title) {
+                case '震度速報':
+                    html += `<hr>
+                            <div>`;
+                    data.areas.forEach(area => {
+                        const isHigh = area.maxInt.includes('5') || area.maxInt.includes('6') || area.maxInt === '7';
+                        html += `
+                            <span class="area-item ${isHigh ? 'int-high' : ''}">
+                                震度${area.maxInt} : ${area.name}
+                            </span>
+                        `;});
+                break;
+
+                case '緊急地震速報（警報）':
+                    if(data.commentText == ""){
+                        html += `<p>${data.ReduceName}で地震発生。</p>`;
+                    }else{
+                        html += `<p>${data.ReduceName}で地震、${data.commentText}</p>`;
+                    }
+                    html += `<hr><div>`;
+                    
+                    data.areas.forEach(area => {
+                        html += `
+                            <span class="area-item">
+                                ${area.Name}<br>
+                            </span>
+                        `;});
+                break;
+
+                case '震度・震源情報':
+                    displayMode = '市区町村名';
+                    html += `
+                                <p>震源は ${data.ReduceName}</p>
+                                <p>${data.commentText}</p>
+                                <hr>
+                                <div>
+                    `;
+                    
+                    switch(displayMode){
+                        case '市区町村名':
+                            data.areas.forEach(area => {
+                            const isHigh = area.maxInt.includes('5') || area.maxInt.includes('6') || area.maxInt === '7';
+                            html += `
+                                <span class="area-item ${isHigh ? 'int-high' : ''}">
+                                    震度${area.maxInt} : ${area.cityName}
+                                </span>
+                            `;});
+                        break;
+                    }
+                break;
+            }
+                
+
+        
+
+            html += `</div></div>`;
+            container.innerHTML = html;
+        });
+    </script>
+</body>
+</html>

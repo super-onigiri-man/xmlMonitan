@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://xml.kishou.go.jp/jmaxml1/" xmlns:jmx="http://xml.kishou.go.jp/jmaxml1/">
+  <Control>
+    <Title>緊急地震速報（警報）</Title>
+    <DateTime>2026-01-06T01:18:55Z</DateTime>
+    <Status>通常</Status>
+    <EditorialOffice>大阪管区気象台</EditorialOffice>
+    <PublishingOffice>気象庁</PublishingOffice>
+  </Control>
+  <Head xmlns="http://xml.kishou.go.jp/jmaxml1/informationBasis1/">
+    <Title>緊急地震速報（警報）</Title>
+    <ReportDateTime>2026-01-06T10:18:55+09:00</ReportDateTime>
+    <TargetDateTime>2026-01-06T10:18:55+09:00</TargetDateTime>
+    <EventID>20260106101849</EventID>
+    <InfoType>発表</InfoType>
+    <Serial>1</Serial>
+    <InfoKind>緊急地震速報</InfoKind>
+    <InfoKindVersion>1.2_0</InfoKindVersion>
+    <Headline>
+      <Text>島根県で地震　中国で強い揺れ</Text>
+      <Information type="緊急地震速報（地方予報区）">
+        <Item>
+          <Kind>
+            <Name>緊急地震速報（警報）</Name>
+            <Code>31</Code>
+          </Kind>
+          <LastKind>
+            <Name>なし</Name>
+            <Code>00</Code>
+          </LastKind>
+          <Areas codeType="緊急地震速報／地方予報区">
+            <Area>
+              <Name>中国</Name>
+              <Code>9942</Code>
+            </Area>
+          </Areas>
+        </Item>
+      </Information>
+      <Information type="緊急地震速報（府県予報区）">
+        <Item>
+          <Kind>
+            <Name>緊急地震速報（警報）</Name>
+            <Code>31</Code>
+          </Kind>
+          <LastKind>
+            <Name>なし</Name>
+            <Code>00</Code>
+          </LastKind>
+          <Areas codeType="緊急地震速報／府県予報区">
+            <Area><Name>鳥取</Name><Code>9310</Code></Area>
+            <Area><Name>島根</Name><Code>9320</Code></Area>
+            <Area><Name>広島</Name><Code>9340</Code></Area>
+            <Area><Name>岡山</Name><Code>9330</Code></Area>
+          </Areas>
+        </Item>
+      </Information>
+      <Information type="緊急地震速報（細分区域）">
+        <Item>
+          <Kind>
+            <Name>緊急地震速報（警報）</Name>
+            <Code>31</Code>
+          </Kind>
+          <LastKind>
+            <Name>なし</Name>
+            <Code>00</Code>
+          </LastKind>
+          <Areas codeType="地震情報／細分区域">
+            <Area><Name>鳥取県西部</Name><Code>563</Code></Area>
+            <Area><Name>島根県東部</Name><Code>570</Code></Area>
+            <Area><Name>広島県北部</Name><Code>590</Code></Area>
+            <Area><Name>岡山県北部</Name><Code>580</Code></Area>
+            <Area><Name>広島県南東部</Name><Code>591</Code></Area>
+            <Area><Name>鳥取県中部</Name><Code>562</Code></Area>
+            <Area><Name>鳥取県東部</Name><Code>560</Code></Area>
+            <Area><Name>岡山県南部</Name><Code>581</Code></Area>
+          </Areas>
+        </Item>
+      </Information>
+    </Headline>
+  </Head>
+  <Body xmlns="http://xml.kishou.go.jp/jmaxml1/body/seismology1/" xmlns:jmx_eb="http://xml.kishou.go.jp/jmaxml1/elementBasis1/">
+    <Earthquake>
+      <OriginTime>2026-01-06T10:18:46+09:00</OriginTime>
+      <ArrivalTime>2026-01-06T10:18:49+09:00</ArrivalTime>
+      <Hypocenter>
+        <Area>
+          <Name>島根県東部</Name>
+          <Code type="震央地名">570</Code>
+          <jmx_eb:Coordinate description="北緯３５．３度　東経１３３．２度　深さ　１０ｋｍ" datum="日本測地系">+35.3+133.2-10000/</jmx_eb:Coordinate>
+          <ReduceName>島根県</ReduceName>
+          <ReduceCode type="短縮用震央地名">9320</ReduceCode>
+          <LandOrSea>内陸</LandOrSea>
+        </Area>
+        <Accuracy>
+          <Epicenter rank="4" rank2="4">NaN</Epicenter>
+          <Depth rank="4">NaN</Depth>
+          <MagnitudeCalculation rank="5">NaN</MagnitudeCalculation>
+          <NumberOfMagnitudeCalculation>1</NumberOfMagnitudeCalculation>
+        </Accuracy>
+      </Hypocenter>
+      <jmx_eb:Magnitude type="Mj" description="Ｍ５．８">5.8</jmx_eb:Magnitude>
+    </Earthquake>
+    <Intensity>
+      <Forecast>
+        <CodeDefine>
+          <Type xpath="Pref/Code">緊急地震速報／府県予報区</Type>
+          <Type xpath="Pref/Area/Code">地震情報／細分区域</Type>
+          <Type xpath="Pref/Area/Category/Kind/Code">緊急地震速報</Type>
+        </CodeDefine>
+        <ForecastInt>
+          <From>5+</From>
+          <To>5+</To>
+        </ForecastInt>
+        <ForecastLgInt>
+          <From>3</From>
+          <To>3</To>
+        </ForecastLgInt>
+        <Appendix>
+          <MaxIntChange>1</MaxIntChange>
+          <MaxLgIntChange>1</MaxLgIntChange>
+          <MaxIntChangeReason>1</MaxIntChangeReason>
+        </Appendix>
+        <Pref>
+          <Name>鳥取</Name>
+          <Code>9310</Code>
+          <Area>
+            <Name>鳥取県西部</Name>
+            <Code>563</Code>
+            <Category>
+              <Kind>
+                <Name>緊急地震速報（警報）</Name>
+                <Code>11</Code>
+              </Kind>
+            </Category>
+            <ForecastInt><From>5+</From><To>5+</To></ForecastInt>
+            <Condition>既に主要動到達と推測</Condition>
+          </Area>
+        </Pref>
+        </Forecast>
+    </Intensity>
+    <Comments>
+      <WarningComment codeType="固定付加文">
+        <Text>強い揺れに警戒してください。</Text>
+        <Code>0201</Code>
+      </WarningComment>
+    </Comments>
+  </Body>
+</Report>
